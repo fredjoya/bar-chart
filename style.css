@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+svg {
+  background-color: wheat;
+}
+
+.bar {
+  background-color: #2b7a78;
+  border-color: #2b7a78;
+  fill: #2b7a78;
+}
+
+.bar:hover {
+  fill: #17252a;
+}
