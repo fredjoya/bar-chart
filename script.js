@@ -1,20 +1,20 @@
 
-let url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json'
-let req = new XMLHttpRequest()
+let url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json';
+let req = new XMLHttpRequest();
 
-let data
-let values = []
+let data;
+let values = [];
 
-let heightScale
-let xScale
-let xAxisScale
-let yAxisScale
+let heightScale;
+let xScale;
+let xAxisScale;
+let yAxisScale;
 
-let width = 800
-let height = 600
-let padding = 40
+let width = 800;
+let height = 600;
+let padding = 40;
 
-let svg = d3.select('svg')
+let svg = d3.select('svg');
 
 let drawCanvas = () => {
     svg.attr('width', width)
@@ -35,7 +35,7 @@ let generateScales = () => {
 
     let datesArray = values.map((item) => {
         return new Date(item[0])
-    })
+    });
 
     xAxisScale = d3.scaleTime()
                     .domain([d3.min(datesArray), d3.max(datesArray)])
@@ -46,7 +46,7 @@ let generateScales = () => {
                         return item[1]
                     })])
                     .range([height - padding, padding ])
-}
+};
 
 let drawBars =() => {
 
@@ -109,7 +109,7 @@ let generateAxes = () => {
         
 }
 
-req.open('GET', url, true)
+req.open('GET', url);
 req.onload = () => {
     data = JSON.parse(req.responseText)
     values = data.data
@@ -119,4 +119,4 @@ req.onload = () => {
     drawBars()
     generateAxes()
 }
-req.send()
+req.send();
